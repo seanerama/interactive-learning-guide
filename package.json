@@ -1,11 +1,12 @@
 {
   "name": "interactive-learning-guide",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Transform books, slides, transcripts, and technical content into interactive HTML learning guides — powered by Claude Code",
   "bin": {
     "interactive-learning-guide": "bin/install.js"
   },
   "files": [
+    "README.md",
     "bin",
     "commands",
     "ilg",
