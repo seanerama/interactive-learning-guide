@@ -1,8 +1,12 @@
 # Interactive Learning Guide
 
-> Transform books, slides, transcripts, and technical content into interactive HTML learning tools — powered by Claude Code.
+Transform books, slides, transcripts, and technical content into interactive HTML learning tools — powered by Claude Code.
 
 Upload your material, run a slash command, get back a **single HTML file** you can open in any browser. No server, no build tools, no dependencies.
+
+```
+npx interactive-learning-guide --claude
+```
 
 ---
 
