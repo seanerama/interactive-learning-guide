@@ -42,6 +42,7 @@ for (const cmd of expectedCommands) {
 // Test 3: All workflow files exist
 const workflowsDir = path.join(__dirname, '..', 'ilg', 'workflows');
 const expectedWorkflows = [
+  'auto-book.md',
   'single-session-book.md',
   'single-session-multiformat.md',
   'chunked-init.md',

@@ -1,6 +1,6 @@
 ---
 name: ilg:book
-description: Process a book into an interactive learning guide (single session)
+description: Process a book into an interactive learning guide (auto-chunks long books)
 argument-hint: "[--chapters X-Y] [--focus 'topic'] [--difficulty level] [--quiz-depth N]"
 allowed-tools:
   - Read
@@ -9,18 +9,28 @@ allowed-tools:
   - Glob
   - Grep
   - Bash
+  - Agent
   - AskUserQuestion
 ---
 <objective>
-Read an uploaded book (PDF or EPUB), analyze the content, and generate a single
-self-contained interactive HTML learning guide with concept map, quiz engine,
-and glossary explorer.
+Read an uploaded book (PDF or EPUB), automatically detect chapters, process them
+in sequence (using sub-agents for long books), and generate a single self-contained
+interactive HTML learning guide with concept map, quiz engine, and glossary explorer.
+
+The user does NOT need to manually chunk the book — this command handles everything.
 
 Produces: a single HTML file ready to open in any browser.
 </objective>
 
 <execution_context>
+@~/.claude/ilg/workflows/auto-book.md
 @~/.claude/ilg/workflows/single-session-book.md
+@~/.claude/ilg/workflows/chunked-init.md
+@~/.claude/ilg/workflows/chunked-chapter.md
+@~/.claude/ilg/workflows/chunked-build.md
+@~/.claude/ilg/templates/learning-data.json
+@~/.claude/ilg/templates/progress.md
+@~/.claude/ilg/templates/summary.md
 </execution_context>
 
 <context>
@@ -39,13 +49,8 @@ If no file is detected, ask them to upload one.
    - `--difficulty foundational|intermediate|advanced` → bias quiz difficulty
    - `--quiz-depth N` → questions per chapter (default: 5)
 
-3. Follow the workflow in `~/.claude/ilg/workflows/single-session-book.md`:
-   a. Deep read the full content (or scoped chapters)
-   b. Extract concepts, relationships, terms
-   c. Generate quiz questions across difficulty levels
-   d. Build the concept map structure
-   e. Compile the glossary
-   f. Generate the complete interactive HTML file
+3. Follow the workflow in `~/.claude/ilg/workflows/auto-book.md` to automatically
+   scan, chunk, process, and build the guide.
 
 4. Save the HTML file and present it for download/preview.
 

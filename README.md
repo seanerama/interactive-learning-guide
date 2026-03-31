@@ -33,11 +33,13 @@ After installing, start a Claude Code session and run:
 /ilg:help
 ```
 
-### Quick Start: Single Book
+### Quick Start: Books
 
 1. Upload a PDF or EPUB
 2. Run `/ilg:book`
 3. Download the generated HTML file
+
+Long books are automatically chunked and processed chapter by chapter — you don't need to do anything different.
 
 ### Quick Start: Slides, Transcripts, Data Sheets
 
@@ -45,24 +47,12 @@ After installing, start a Claude Code session and run:
 2. Run `/ilg:multiformat`
 3. Download the generated HTML file
 
-### Long Books: Chunked Pipeline
-
-For books that exceed a single context window:
-
-```
-/ilg:init              → Reads preface + Ch.1, creates relay files
-/ilg:chapter [N]       → Processes one chapter, appends to relay files  (repeat)
-/ilg:build             → Compiles everything into the interactive HTML
-```
-
-Use `/ilg:status` to check pipeline progress at any time.
-
 ## Commands
 
 | Command | Description |
 |---------|-------------|
 | `/ilg:start` | Choose a workflow interactively |
-| `/ilg:book` | Process a book in one session |
+| `/ilg:book` | Process a book — auto-chunks long books |
 | `/ilg:multiformat` | Process slides, transcripts, data sheets, install guides |
 | `/ilg:init` | Start chunked pipeline (preface + Chapter 1) |
 | `/ilg:chapter [N]` | Process next chapter in chunked pipeline |

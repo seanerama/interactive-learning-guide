@@ -21,13 +21,13 @@ Display all available interactive-learning-guide commands with descriptions and 
    | `/ilg:status` | Show current pipeline state (chunked workflow) |
    | `/ilg:help` | This help page |
 
-   ### Single-Session Workflows
+   ### Workflows
    | Command | Description |
    |---------|-------------|
-   | `/ilg:book` | Process a book (PDF/EPUB) in one session |
+   | `/ilg:book` | Process a book (PDF/EPUB) — auto-chunks long books |
    | `/ilg:multiformat` | Process slides, transcripts, data sheets, or install guides |
 
-   ### Chunked Pipeline (Long Books)
+   ### Manual Chunked Pipeline (Advanced)
    | Command | Description |
    |---------|-------------|
    | `/ilg:init` | Initialize pipeline — read preface + Chapter 1, create relay files |
@@ -36,15 +36,16 @@ Display all available interactive-learning-guide commands with descriptions and 
 
    ### Usage
 
-   **Quick single-session guide:**
+   **Books (any length):**
    1. Upload a PDF/EPUB
-   2. Run `/ilg:book` (for books) or `/ilg:multiformat` (for other content)
+   2. Run `/ilg:book`
    3. Download the generated HTML file
+   (Long books are automatically chunked and processed chapter by chapter)
 
-   **Long book pipeline:**
-   1. Upload book + run `/ilg:init`
-   2. For each remaining chapter: upload book + relay files, run `/ilg:chapter [N]`
-   3. After all chapters: upload relay files, run `/ilg:build`
+   **Other content:**
+   1. Upload slides, transcripts, data sheets, or install guides
+   2. Run `/ilg:multiformat`
+   3. Download the generated HTML file
 
    ### Tips
    - Add `--focus "topic"` to give extra depth to a specific area
