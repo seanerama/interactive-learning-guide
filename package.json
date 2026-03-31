@@ -1,0 +1,46 @@
+{
+  "name": "interactive-learning-guide",
+  "version": "1.0.0",
+  "description": "Transform books, slides, transcripts, and technical content into interactive HTML learning guides — powered by Claude Code",
+  "bin": {
+    "interactive-learning-guide": "bin/install.js"
+  },
+  "files": [
+    "bin",
+    "commands",
+    "ilg",
+    "hooks/src",
+    "hooks/dist",
+    "scripts"
+  ],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai",
+    "interactive-learning",
+    "learning-guide",
+    "study-tool",
+    "concept-map",
+    "quiz",
+    "flashcards",
+    "education",
+    "gemini",
+    "gemini-cli",
+    "codex",
+    "codex-cli",
+    "opencode"
+  ],
+  "author": "Sean Mahoney",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.7.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  },
+  "scripts": {
+    "build:hooks": "node scripts/build-hooks.js",
+    "prepublishOnly": "npm run build:hooks",
+    "test": "node scripts/run-tests.cjs"
+  }
+}
